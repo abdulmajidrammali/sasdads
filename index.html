@@ -1,29 +1,21 @@
 <html> 
-<p> my code html </p> 
-      <img id="pic" src="https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/240899206_1037510423658814_3971327763740634703_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=8QQisgoXTLsAX9yS2Va&_nc_ht=scontent-lhr8-2.xx&oh=00_AT84WKvGvdahS97NBwLyf8dwbhiBS53-F_3BaiptXkjBeA&oe=62E131E5
-" width="500px"/>
-<br>
- 
-<button id="previous"> previous </button>
-<button id="next"> next</button>
+<ul id="list">
+</ul>
+      
 <script> 
-var images;
+var array, item;
 
 
-images = ['https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/240899206_1037510423658814_3971327763740634703_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=8QQisgoXTLsAX9yS2Va&_nc_ht=scontent-lhr8-2.xx&oh=00_AT84WKvGvdahS97NBwLyf8dwbhiBS53-F_3BaiptXkjBeA&oe=62E131E5', 'https://scontent-lhr8-1.xx.fbcdn.net/v/t39.30808-6/275497794_1159614011448454_152015934103637154_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=NiuUIU42xNUAX97Jt9-&tn=ahzqfvAyJQJf3KGA&_nc_ht=scontent-lhr8-1.xx&oh=00_AT97Wtipb7FZuTMtdy1FQmu5MYSQdZ04IfeShnodPd7Ybg&oe=62E0294C', 'https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/273921827_1144509692958886_7641604410475577562_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1PaQ81pE6w4AX9yNZs5&_nc_ht=scontent-lhr8-2.xx&oh=00_AT8XIUxZZmzJI-Ig3bipBGMV5vxBAZv0TfseMulb8kEMFg&oe=62E05B8F', 'https://scontent-lhr8-1.xx.fbcdn.net/v/t39.30808-6/242989456_1055729221836934_7429181294423187310_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=v7BK-ivulWcAX9bLx3O&_nc_ht=scontent-lhr8-1.xx&oh=00_AT8eSE8VUTKuMv1CmfWUKiwqKeH8TE6i7fh70f8T1j0dpg&oe=62E07B5D'];
+array = ['https://www.youtube.com/watch?v=BBJa32lCaaY&ab_channel=LegacyPNDA', 'Check out this video', 'https://www.youtube.com/watch?v=iik25wqIuFo&ab_channel=Rickroll%2Cbutwithadifferentlink', 'Sorry I mean this one'];
+array.forEach((item) => {
+  let element_list = document.getElementById('list');
+  let new_li = document.createElement('li');
+  let new_a = document.createElement('a');
+  new_a.setAttribute("href", array.shift());
+  new_a.innerText = array.shift();
 
+  new_li.appendChild(new_a);
 
-document.getElementById('next').addEventListener('click', (event) => {
-  images.push(images.shift());
-  let element_pic = document.getElementById('pic');
-  element_pic.setAttribute("src", images[0]);
-
-});
-
-document.getElementById('previous').addEventListener('click', (event) => {
-  images.unshift(images.slice(-1)[0]);
-  let element_pic2 = document.getElementById('pic');
-  element_pic2.setAttribute("src", images.pop());
-
+  element_list.appendChild(new_li);
 });
 </script>
